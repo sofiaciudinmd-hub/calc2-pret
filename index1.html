@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Calculator Pre?</title>
+<title>Calculator Pret</title>
 
 <style>
     body {
@@ -60,7 +60,7 @@
 </head>
 <body>
 
-<h2>Calculator Pre?</h2>
+<h2>Calculator Pret</h2>
 
 <input type="text" id="nr" readonly placeholder="0">
 
@@ -77,7 +77,7 @@
     <button onclick="adauga('8')">8</button>
     <button onclick="adauga('9')">9</button>
 
-    <button onclick="stergeUltimul()">?</button>
+    <button onclick="stergeUltimul()">X</button>
     <button onclick="adauga('0')">0</button>
     <button onclick="stergeTot()">C</button>
 </div>
@@ -89,9 +89,9 @@
     <button onclick="calculeaza(12)">12%</button>
 </div>
 
-<h3 id="net">Pre? net: 0</h3>
+<h3 id="net">Pret net: 0</h3>
 <h3 id="comision">Comision: 0</h3>
-<h3 id="brut">Pre? brut: 0</h3>
+<h3 id="brut">Pret brut: 0</h3>
 
 <script>
 function adauga(cifra) {
@@ -106,9 +106,9 @@ function stergeUltimul() {
 function stergeTot() {
     document.getElementById("nr").value = "";
 
-    document.getElementById("net").innerText = "Pre? net: 0";
+    document.getElementById("net").innerText = "Pret net: 0";
     document.getElementById("comision").innerText = "Comision: 0";
-    document.getElementById("brut").innerText = "Pre? brut: 0";
+    document.getElementById("brut").innerText = "Pret brut: 0";
 }
 
 function calculeaza(procent) {
@@ -143,13 +143,13 @@ function calculeaza(procent) {
     let pretBrut = pretNet + comision;
 
     document.getElementById("net").innerText =
-        "Pre? net: " + Math.round(pretNet);
+        "Pret net: " + Math.round(pretNet);
 
     document.getElementById("comision").innerText =
         "Comision: " + comision;
 
     document.getElementById("brut").innerText =
-        "Pre? brut: " + Math.round(pretBrut);
+        "Pret brut: " + Math.round(pretBrut);
 }
 </script>
 
