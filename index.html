@@ -113,14 +113,48 @@ text-align: left;
 </div>
 
 <div class="procente">
-<button class="procBtn" onclick="selecteazaProcent(this, 10)">10%</button>
+<button id="btn10"
+class="procBtn"
+onclick="apasareScurta()"
+ontouchstart="incepeLongPress()"
+ontouchend="opresteLongPress()"
+ontouchcancel="opresteLongPress()">
+10%
+</button>
 <button class="procBtn" onclick="selecteazaProcent(this, 10.5)">10,5%</button>
-<button class="procBtn" onclick="selecteazaProcent(this, 11)">11%</button>
 <button class="procBtn" onclick="selecteazaProcent(this, 11.5)">11,5%</button>
 <button class="procBtn" onclick="selecteazaProcent(this, 12)">12%</button>
 </div>
 
 <script>
+let timer;
+let procent1011 = 10;
+
+function incepeLongPress() {
+    timer = setTimeout(function () {
+
+        if (procent1011 == 10) {
+            procent1011 = 11;
+            document.getElementById("btn10").innerHTML = "11%";
+        } else {
+            procent1011 = 10;
+            document.getElementById("btn10").innerHTML = "10%";
+        }
+
+        let btn = document.getElementById("btn10");
+        selecteazaProcent(btn, procent1011);
+
+    }, 600);
+}
+
+function opresteLongPress() {
+    clearTimeout(timer);
+}
+
+function apasareScurta() {
+    let btn = document.getElementById("btn10");
+    selecteazaProcent(btn, procent1011);
+}
 let procentSelectat = null;
 
 function adauga(cifra) {
