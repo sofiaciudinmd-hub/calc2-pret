@@ -115,8 +115,7 @@ text-align: left;
 <div class="procente">
 <button id="btn10"
 class="procBtn"
-onclick="selecteazaProcent(this,10)"
-ondblclick="schimbaIn11()">
+onclick="apasare10()">
 10%
 </button>
 <button class="procBtn" onclick="selecteazaProcent(this, 10.5)">10,5%</button>
@@ -125,13 +124,38 @@ ondblclick="schimbaIn11()">
 </div>
 
 <script>
-function schimbaIn11() {
-    let btn = document.getElementById("btn10");
+let ultimaApasare = 0;
+let procent10 = true;
 
-    btn.innerHTML = "11%";
-    btn.setAttribute("onclick", "selecteazaProcent(this,11)");
+function apasare10() {
 
-    selecteazaProcent(btn,11);
+    let acum = new Date().getTime();
+
+    if (acum - ultimaApasare < 400) {
+
+        let btn = document.getElementById("btn10");
+
+        if (procent10) {
+            procent10 = false;
+            btn.innerHTML = "11%";
+            selecteazaProcent(btn, 11);
+        } else {
+            procent10 = true;
+            btn.innerHTML = "10%";
+            selecteazaProcent(btn, 10);
+        }
+
+    } else {
+
+        let btn = document.getElementById("btn10");
+
+        if (procent10)
+            selecteazaProcent(btn,10);
+        else
+            selecteazaProcent(btn,11);
+    }
+
+    ultimaApasare = acum;
 }
 let procentSelectat = null;
 
